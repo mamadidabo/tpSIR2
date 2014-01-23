@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="5.6">
-<file name="C:\Users\mohamed\Desktop\tpediteur\tp.dabo.leroy\src\main\java\dabo\leroy\tp\dabo\leroy\App.java">
+<file name="C:\Users\mohamed\git\monDepo\tp.dabo.leroy\src\main\java\dabo\leroy\tp\dabo\leroy\App.java">
 <error line="0" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 <error line="0" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 <error line="7" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
