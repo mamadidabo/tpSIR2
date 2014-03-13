@@ -1,59 +1,59 @@
 package fr.istic.tpjpa.jpa;
 
-
-
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
-
 @Entity
-public class ElectronicDivice {
-    protected int id;
-    public String equipementsElectrique="";
-    public double comsoMoyenne=0.0;
-    public Home home=new Home();
-   
-	public ElectronicDivice(String equipementsElectrique,double consoMoyenne){
-    	this.equipementsElectrique=equipementsElectrique;
-    	this.comsoMoyenne=consoMoyenne;
-    }
-    public ElectronicDivice(){
-    
-    }
-    @Id
-    @GeneratedValue
-	public int getId() {
-		return id;
-	}
+@DiscriminatorValue("ElectronicDivice")
+public class ElectronicDivice extends PeriphIntelig {
+	@Transient
+	private int id;
+	@Transient
+	private String equipementsElectrique = "";
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	private double comsoMoyenne = 0.0;
+	public Home home = new Home();
 
-	public String getEquipementsElectrique() {
-		return equipementsElectrique;
-	}
-
-	public void setEquipementsElectrique(String equipementsElectrique) {
+	public ElectronicDivice(String equipementsElectrique, double consoMoyenne) {
 		this.equipementsElectrique = equipementsElectrique;
+		this.comsoMoyenne = consoMoyenne;
 	}
-	
-	 public double getComsoMoyenne() {
-			return comsoMoyenne;
+
+	public ElectronicDivice() {
+
 	}
-		public void setComsoMoyenne(double comsoMoyenne) {
-			this.comsoMoyenne = comsoMoyenne;
+//
+//	// @Id
+//	// @GeneratedValue
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
+//
+//	public String getEquipementsElectrique() {
+//		return equipementsElectrique;
+//	}
+//
+//	public void setEquipementsElectrique(String equipementsElectrique) {
+//		this.equipementsElectrique = equipementsElectrique;
+//	}
+//
+
+	@ManyToOne
+	public Home getHome() {
+		return home;
 	}
-		@ManyToOne
-		public Home getHome() {
-			return home;
-	}
-		public void setHome(Home home) {
-			this.home = home;
+
+	public void setHome(Home home) {
+		this.home = home;
 	}
 
 }

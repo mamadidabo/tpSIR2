@@ -43,8 +43,9 @@ public class JpaTest {
 		// TODO persist entity
 
 		tx.commit();
-		//test.Listamis();
-		//test.Listmaisons();
+		test.Listamis();
+		test.Listmaisons();
+		test.Listequipements();
 		// TODO run request
 		manager.close();
 		System.out.println(".. done");
@@ -59,10 +60,10 @@ public class JpaTest {
      Home home3;
      Home home4;
      
-     ElectronicDivice elec1;
-     ElectronicDivice elec2;
-     ElectronicDivice elec3;
-     ElectronicDivice elec4;
+     PeriphIntelig elec1;
+     PeriphIntelig  elec2;
+     PeriphIntelig  elec3;
+     PeriphIntelig  elec4;
      
 		
 	
@@ -136,33 +137,33 @@ public class JpaTest {
 		private void createElectronicDivice() {
 	        int id = manager.createQuery("Select c From ElectronicDivice c", ElectronicDivice.class).getResultList().size();
 	        if (id == 0) {
-	        	ElectronicDivice electronicDivice = new ElectronicDivice();
+	        	PeriphIntelig electronicDivice = new ElectronicDivice();
 
 	            		elec1=new ElectronicDivice("micro-onde",54);
 	            		elec2=new ElectronicDivice("lave-vesselle",703);
 	            		elec3=new ElectronicDivice("chauffage",234);
 	            		elec4=new ElectronicDivice("machine a lavé",500);
 	            		
-	            		 Collection<ElectronicDivice> listEqui = new ArrayList<ElectronicDivice>();
-	      	             Collection<ElectronicDivice> listEqui1 = new ArrayList<ElectronicDivice>();
+	            		 Collection<PeriphIntelig> listEqui = new ArrayList<PeriphIntelig>();
+	      	             Collection<PeriphIntelig> listEqui1 = new ArrayList<PeriphIntelig>();
 	      	             
 	      	             listEqui.add(elec1);
 	      	             listEqui.add(elec2);
 	      	             listEqui1.add(elec3);
 	      	             listEqui1.add(elec4);
 	      	             
-	      	             elec1.setHome(home1);
-	      	             elec2.setHome(home1);
-	      	             elec3.setHome(home3);
-	      	             elec4.setHome(home3);;
+	      	             ((ElectronicDivice) elec1).setHome(home1);
+	      	             ((ElectronicDivice) elec2).setHome(home1);
+	      	             ((ElectronicDivice) elec3).setHome(home3);
+	      	             ((ElectronicDivice) elec4).setHome(home3);;
 	      	             
-	      	             home1.setEquipements(listEqui);;
-	      	             home3.setEquipements(listEqui1);
+	      	            // home1.setEquipements(listEqui);;
+	      	            // home3.setEquipements(listEqui1);
 	            
-	            		//manager.persist(elec1);
-	            		//manager.persist(elec2);
-	            		//manager.persist(elec3);
-	            		//manager.persist(elec4);
+	            		manager.persist(elec1);
+	            		manager.persist(elec2);
+	            		manager.persist(elec3);
+	            		manager.persist(elec4);
 	        }
 		
 		
@@ -184,14 +185,14 @@ public class JpaTest {
 	            System.out.println("next Personne: " + next.id);
 	        }
 	    }
-	    /*
+	    
 	    private void Listequipements() {
-	        List<ElectronicDivice> resultList = manager.createQuery("Select a From ElectronicDivice a", ElectronicDivice.class).getResultList();
+	        List<PeriphIntelig> resultList = manager.createQuery("Select a From PeriphIntelig a", PeriphIntelig.class).getResultList();
 	        System.out.println("num id:" + resultList.size());
-	        for (ElectronicDivice next : resultList) {
-	            System.out.println("next Personne: " + next);
+	        for (PeriphIntelig next : resultList) {
+	            System.out.println("next Personne: " + next.id);
 	        }
-	    }*/
+	    }
 
 }
 

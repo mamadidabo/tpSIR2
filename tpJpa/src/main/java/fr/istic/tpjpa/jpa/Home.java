@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -71,7 +72,7 @@ public class Home {
 	public void setPersonne(Personne personne) {
 		this.personne = personne;
 	}
-	@OneToMany(mappedBy="home",cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy="home",cascade=CascadeType.PERSIST , fetch=FetchType.EAGER)
 	
 		public Collection<ElectronicDivice> getEquipements() {
 		return equipements;
