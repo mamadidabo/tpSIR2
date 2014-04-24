@@ -73,7 +73,7 @@ public class Home {
 		this.personne = personne;
 	}
 	@OneToMany(mappedBy="home",cascade=CascadeType.PERSIST , fetch=FetchType.EAGER)
-	
+	//plus besoin de persist les electronicdivice car il est fait par cascade
 		public Collection<ElectronicDivice> getEquipements() {
 		return equipements;
 	}
